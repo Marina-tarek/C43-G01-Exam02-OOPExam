@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ExamOOP
 {
-    internal class Question
+    public class Question
     {
         //properties
         public string Header { get; set; }
         public string Body { get; set; }
         public double Mark { get; set; }
-        public Answers[] AnswerList { get; set; }
+        //public Answers[] AnswerList { get; set; }
 
         //constructor
         public Question(string header, string body, double mark)
@@ -20,6 +20,7 @@ namespace ExamOOP
             Header = header;
             Body = body;
             Mark = mark;
+            
         }
         //method
         public override string ToString()

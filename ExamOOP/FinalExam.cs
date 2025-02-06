@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace ExamOOP
 {
-    internal class FinalExam
+    public class FinalExam : Exam
     {
+        public FinalExam(int examTime, int numOfQuestion) : base(examTime, numOfQuestion)
+        {
+        }
+
+        public override void AddQuestion()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

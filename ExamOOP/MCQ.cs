@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ExamOOP
 {
-    internal class MCQ
+    internal class MCQ : Question
     {
+        public MCQ(string header, string body, double mark) : base(header, body, mark)
+        {
+        }
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,27 +21,53 @@ namespace ExamOOP
         public void  CreateExam() 
         {
             //Every Exam object is Associated to a Subject.
-            int examTime, numOfQuestion;
+            int examTime, numOfQuestion,Qnum;
             string TypeOfExam;
-            Console.Write("please enter P for practicalExam Or F for finalExam");
-            TypeOfExam = Console.ReadLine().ToLower();
-            if (string.IsNullOrEmpty(TypeOfExam))
+            bool questionNum,Time;
+            do
             {
-                Console.Write("please enter P for practicalExam Or F for finalExam");
-                return;
+
+                Console.Write("please enter P for practicalExam Or F for finalExam : ");
+                TypeOfExam = Console.ReadLine().ToLower();
+
+            }
+            while (string.IsNullOrEmpty(TypeOfExam)||!(TypeOfExam == "p" || TypeOfExam == "f"));
+            do
+            {
+
+                Console.Write("please enter Time of the exam from 30 to 120 min : ");
+                Time = int.TryParse(Console.ReadLine(),out examTime);
                
             }
-            else 
+            while (!Time ||  (examTime<30) || (examTime > 120));
+            if (TypeOfExam == "p")
             {
-                if (TypeOfExam == "p" || TypeOfExam == "f")
+                do
                 {
-                    Console.WriteLine(TypeOfExam);
-                }else
-                {
-                    Console.WriteLine("Must enter p or f");
-                    Console.Write("please enter P for practicalExam Or F for finalExam");
+                    Console.Write("In practicalExam Please Enter The Number Of Questions 1-5  : ");
+                    questionNum = int.TryParse(Console.ReadLine(), out Qnum);
+                    //PracticalExam practicalExam = new PracticalExam(examTime, numOfQuestion);
+
+
                 }
+                while (!questionNum || (Qnum > 5) || (Qnum < 1));
             }
+            else if (TypeOfExam == "f")
+            {
+                do
+                {
+                    Console.Write("In FinalExam Please Enter The Number Of Questions 10-20  : ");
+                    questionNum = int.TryParse(Console.ReadLine(), out Qnum);
+                    //PracticalExam practicalExam = new PracticalExam(examTime, numOfQuestion);
+
+
+                }
+                while (!questionNum || (Qnum > 20) || (Qnum < 10));
+            }
+
+            Console.Clear();
+
+
         }
     }
 }
