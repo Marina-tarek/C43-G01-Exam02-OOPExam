@@ -52,6 +52,7 @@ namespace ExamOOP
 
             }
             Console.Clear();
+            
             Console.WriteLine("The Right Answers");
             for (int i = 0; i < Questions.Length; i++)
             {
