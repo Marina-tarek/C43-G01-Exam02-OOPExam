@@ -23,7 +23,7 @@ namespace ExamOOP
             NumOfQuestion = numOfQuestion;
         }
 
-        public virtual void ShowExam() { }
+        public abstract void ShowExam();
         public abstract void Add();
     }
 }

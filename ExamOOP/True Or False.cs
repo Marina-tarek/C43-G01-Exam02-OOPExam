@@ -9,10 +9,7 @@ namespace ExamOOP
     public class True_Or_False : Question
     {
 
-        public override string ToString()
-        {
-            return $"{Header}True or False";
-        }
+        public override string Header => "True or False Question";
         public True_Or_False()
         {
             Answers = new Answer[2];
@@ -21,6 +18,7 @@ namespace ExamOOP
         }
         public override void Add()
         {
+            Console.WriteLine(Header);
             int rightAnswer;
             decimal mark;
             bool solve,Input;
@@ -35,7 +33,8 @@ namespace ExamOOP
                 Console.Write("Please enter the right answer 1 for true and 2 for false : ");
                 solve = int.TryParse(Console.ReadLine(), out rightAnswer);
             } while (!(solve && rightAnswer is 1 or 2));
-
+            RightAnswer.AnswerId = rightAnswer;
+            RightAnswer.AnswerText = Answers?[rightAnswer - 1].AnswerText;
             do
             {
                 Console.Write("Enter Mark of quesion : ");
@@ -45,6 +44,7 @@ namespace ExamOOP
             Mark = mark;
             Console.WriteLine();
 
+            Console.Clear();
 
 
         }

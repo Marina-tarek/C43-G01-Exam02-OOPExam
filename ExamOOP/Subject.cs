@@ -20,17 +20,18 @@ namespace ExamOOP
         public Exam Exam { get; set; }
         public void  CreateExam() 
         {
-            int examTime,Qnum, numOfQuestion=default;
-            string TypeOfExam;
-            bool questionNum,Time;
+            char Texam;
+            int examTime,Qnum;
+            
+            bool questionNum,Time, TypeOfExam;
             do
             {
 
                 Console.Write("please enter P for practicalExam Or F for finalExam : ");
-                TypeOfExam = Console.ReadLine().ToLower();
+                TypeOfExam = char.TryParse(Console.ReadLine(), out Texam);
 
             }
-            while (string.IsNullOrEmpty(TypeOfExam)||!(TypeOfExam == "p" || TypeOfExam == "f"));
+            while (!(TypeOfExam) || !(char.ToLower(Texam) == 'p' || char.ToLower(Texam) == 'f'));
             do
             {
 
@@ -41,30 +42,31 @@ namespace ExamOOP
             while (!Time ||  (examTime<30) || (examTime > 120));
 
 
-            if (TypeOfExam == "p")
+            if (char.ToLower(Texam) == 'p')
             {
                 do
                 {
                     Console.Write("In practicalExam Please Enter The Number Of Questions 1-5  : ");
                     questionNum = int.TryParse(Console.ReadLine(), out Qnum);
-                    Exam = new PracticalExam(examTime, numOfQuestion);
+                    Exam = new PracticalExam(examTime, Qnum);
                     Exam.Add();
-
+                    
                 }
                 while (!questionNum || (Qnum > 5) || (Qnum < 1));
+                Console.Clear();
             }
-            else if (TypeOfExam == "f")
+            else if (char.ToLower(Texam) == 'f')
             {
                 do
                 {
-                    Console.Write("In FinalExam Please Enter The Number Of Questions 10-20  : ");
+                    Console.Write("In FinalExam Please Enter The Number Of Questions 4-20  : ");
                     questionNum = int.TryParse(Console.ReadLine(), out Qnum);
 
-                    Exam = new FinalExam(examTime,numOfQuestion);
+                    Exam = new FinalExam(examTime,Qnum);
                     Exam.Add();
 
                 }
-                while (!questionNum || (Qnum > 20) || (Qnum < 10));
+                while (!questionNum && (Qnum > 20) && (Qnum < 4));
             }
 
             Console.Clear();

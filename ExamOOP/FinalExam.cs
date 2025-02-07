@@ -14,6 +14,7 @@ namespace ExamOOP
 
         public override void Add()
         {
+            Questions = new Question[NumOfQuestion];
             for (int i = 0; i < Questions.Length; i++)
             {
                 int questionType;
@@ -42,6 +43,7 @@ namespace ExamOOP
 
             Console.Clear();
         }
+
         public override void ShowExam()
         {
             int Answer;
@@ -51,15 +53,15 @@ namespace ExamOOP
                 Console.Write($"Q.{i + 1}:");
                 Console.WriteLine(Questions[i].Body);
 
-                for (int j = 0; j < Questions[i].Answers.Length; j++)
+                for (int k= 0; k < Questions[i].Answers?.Length; k++)
                 {
-                    Console.WriteLine($"{Questions[i].Answers[j].Text}");
+                    Console.WriteLine($"{Questions[i].Answers?[k].AnswerText}");
                 }
 
                 Console.WriteLine("-------------------------");
 
 
-                if (Questions[i].GetType() == typeof(Mcq))
+                if (Questions[i].GetType() == typeof(MCQ))
                 {
                     do
                     {
@@ -78,8 +80,8 @@ namespace ExamOOP
                     } while (!(flag && Answer is 1 or 2));
                 }
 
-                Questions[i].Response.Id = Answer;
-                Questions[i].Response.Text = Questions[i].Answers[Answer - 1].Text;
+                Questions[i].Response.AnswerId = Answer;
+                Questions[i].Response.AnswerText = Questions[i].Answers?[Answer - 1].AnswerText;
                 Console.WriteLine("=================================");
 
             }
@@ -88,21 +90,20 @@ namespace ExamOOP
 
             decimal grade = 0; decimal Marks = 0;
 
-            for (int i = 0; i < Questions.Length; i++)
+            for (int i = 0; i < Questions?.Length; i++)
             {
                 Marks += Questions[i].Mark;
 
-                if (Questions[i].Response.Id == Questions[i].RightAnswer.Id)
+                if (Questions[i].Response.AnswerId == Questions[i].RightAnswer.AnswerId)
                     grade += Questions[i].Mark;
 
                 Console.WriteLine($"Q{i + 1}.{Questions[i].Body}\t\t({Questions[i].Mark} Marks)");
-                Console.WriteLine($"Your Answer=>{Questions[i].Response.Text}");
-                Console.WriteLine($"Right Answer=>{Questions[i].RightAnswer.Text}");
+                Console.WriteLine($"Your Answer=>{Questions[i].Response.AnswerText}");
+                Console.WriteLine($"Right Answer=>{Questions[i].RightAnswer.AnswerText}");
                 Console.WriteLine("=================================");
             }
 
             Console.WriteLine($"Your grade is {grade}/{Marks} Marks");
         }
     }
-}
 }

@@ -25,18 +25,18 @@ namespace ExamOOP
         }
         public override void ShowExam()
         {
+            int userAnswer;
+            bool flag;
+
             for (int i = 0; i < Questions.Length; i++)
             {
                 Console.Write($"Q.{i + 1}:");
                 Console.WriteLine(Questions[i].Body);
-                for (int k = 0; k < Questions[i].Answers.Length; k++)
+                for (int k = 0; k < Questions[i].Answers?.Length; k++)
                 {
-                    Console.WriteLine(Questions[i].Answers[k].AnswerText);
+                    Console.WriteLine(Questions[i].Answers?[k].AnswerText);
                 }
                 
-
-                int userAnswer;
-                bool flag;
 
                 do
                 {
@@ -46,7 +46,7 @@ namespace ExamOOP
 
 
                 Questions[i].Response.AnswerId = userAnswer;
-                Questions[i].Response.AnswerText = Questions[i].Answers[userAnswer - 1].AnswerText;
+                Questions[i].Response.AnswerText = Questions[i].Answers?[userAnswer - 1].AnswerText;
 
                 
 
@@ -74,4 +74,4 @@ namespace ExamOOP
         }
     }
 }
-}
+
