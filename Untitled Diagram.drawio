@@ -153,6 +153,29 @@
         <mxCell id="n9qM-8yhjH1g4-WMNaWI-67" value="+ override Add()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-60">
           <mxGeometry y="60" width="280" height="26" as="geometry" />
         </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-74" value="Subject(int id, string name)" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="90" y="530" width="300" height="170" as="geometry">
+            <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-75" value="&lt;&lt;property&gt;&gt;Id : int" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-74">
+          <mxGeometry y="26" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-76" value="&lt;&lt;property&gt;&gt; Name : string" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-74">
+          <mxGeometry y="52" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-77" value="&lt;&lt;property&gt;&gt; Mark: decimal" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-74">
+          <mxGeometry y="78" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-78" value="&lt;&lt;property&gt;&gt; Exam : Exam" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rounded=0;shadow=0;html=0;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-74">
+          <mxGeometry y="104" width="300" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-81" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-74">
+          <mxGeometry y="130" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="n9qM-8yhjH1g4-WMNaWI-82" value="+ CreateExam()" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="n9qM-8yhjH1g4-WMNaWI-74">
+          <mxGeometry y="138" width="300" height="26" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
