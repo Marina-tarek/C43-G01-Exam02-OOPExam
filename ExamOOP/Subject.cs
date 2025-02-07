@@ -8,20 +8,19 @@ using System.Xml.Linq;
 
 namespace ExamOOP
 {
-    internal class Subject
+    public class Subject(int id, string name)
     {
         //a.Subject Id.
         //b.Subject Name.
         //c.Exam of the subject.
         //d.We need to implement functionality to create the exam of
         //the subject.
-        public int Id { get; set; }
-        public string? Name { get; set; }
-        public string? Exam { get; set; }
+        public int Id { get; set; } = id;
+        public string? Name { get; set; } = name;
+        public Exam Exam { get; set; }
         public void  CreateExam() 
         {
-            //Every Exam object is Associated to a Subject.
-            int examTime, numOfQuestion,Qnum;
+            int examTime,Qnum, numOfQuestion=default;
             string TypeOfExam;
             bool questionNum,Time;
             do
@@ -40,14 +39,16 @@ namespace ExamOOP
                
             }
             while (!Time ||  (examTime<30) || (examTime > 120));
+
+
             if (TypeOfExam == "p")
             {
                 do
                 {
                     Console.Write("In practicalExam Please Enter The Number Of Questions 1-5  : ");
                     questionNum = int.TryParse(Console.ReadLine(), out Qnum);
-                    //PracticalExam practicalExam = new PracticalExam(examTime, numOfQuestion);
-
+                    Exam = new PracticalExam(examTime, numOfQuestion);
+                    Exam.Add();
 
                 }
                 while (!questionNum || (Qnum > 5) || (Qnum < 1));
@@ -58,8 +59,9 @@ namespace ExamOOP
                 {
                     Console.Write("In FinalExam Please Enter The Number Of Questions 10-20  : ");
                     questionNum = int.TryParse(Console.ReadLine(), out Qnum);
-                    //PracticalExam practicalExam = new PracticalExam(examTime, numOfQuestion);
 
+                    Exam = new FinalExam(examTime,numOfQuestion);
+                    Exam.Add();
 
                 }
                 while (!questionNum || (Qnum > 20) || (Qnum < 10));

@@ -6,7 +6,7 @@ namespace ExamOOP
         static void Main(string[] args)
         {
 
-            Subject subject = new Subject();
+            Subject subject = new Subject(1,"m");
             subject.CreateExam();
 
             Console.ReadKey();

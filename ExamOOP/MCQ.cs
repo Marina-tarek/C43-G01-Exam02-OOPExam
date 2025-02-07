@@ -8,8 +8,23 @@ namespace ExamOOP
 {
     internal class MCQ : Question
     {
-        public MCQ(string header, string body, double mark) : base(header, body, mark)
+
+        public override string ToString()
         {
+            return $"{Header}MCQ Question";
+        }
+        public MCQ() 
+        {
+            Answers = new Answer[3];
+        }
+        public override void Add()
+        {
+            do
+            {
+                Console.WriteLine("Enter The Qeustion:");
+                Body = Console.ReadLine();
+            } while (string.IsNullOrWhiteSpace(Body));
+
         }
 
     }
